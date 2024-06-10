@@ -1,8 +1,23 @@
+spring:
+  application:
+    name: Apigateway
+  cloud:
+    gateway:
+      routes:
+      - id: user_service
+        uri: lb://GETUSERMS
+        predicates:
+        - Path=/user/**
+
+server:
+    port: 4443
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    react.netty.http.client: DEBUG
+
 eureka:
-  instance: 
-    prefer-ip-address: true
   client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://192.168.1.10:8761/eureka}
