@@ -7,7 +7,7 @@ spring:
       - id: user_service
         uri: lb://USERMS
         predicates:
-        - Path=/api/v.1.0/users/**
+        - Path=/api/v1.0/users/**
 
 server:
     port: 4443
