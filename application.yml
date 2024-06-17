@@ -5,9 +5,9 @@ spring:
     gateway:
       routes:
       - id: user_service
-        uri: http://192.168.1.10:8080
+        uri: lb://USERMS
         predicates:
-        - Path=/user/**
+        - Path=/api/v.1.0/users/**
 
 server:
     port: 4443
