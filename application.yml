@@ -8,6 +8,10 @@ spring:
         uri: lb://USERMS
         predicates:
         - Path=/api/v1.0/users/**
+      - id: user_service
+        uri: lb://MAPPING-ERRORMS
+        predicates:
+        - Path=/api/v1.0/mappingError/**
 
 server:
     port: 4443
